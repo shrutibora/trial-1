@@ -4,7 +4,8 @@ const port = process.env.PORT || 3000;
 app.set('trust proxy', true);
 app.get("/",async(req,res)=>{
     console.log("go")
-    res.send(req.ip);
+    const ipAddress = req.socket.remoteAddress;
+    res.send(ipAddress);
 })
 
 app.listen(port,"0.0.0.0",()=>{
