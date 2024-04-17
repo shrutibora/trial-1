@@ -5,7 +5,9 @@ app.set('trust proxy', true);
 app.get("/",async(req,res)=>{
     console.log("go")
     const ipAddress = req.socket.remoteAddress;
-    res.send(ipAddress);
+    res.write("hi your ip:- ");
+    res.write(ipAddress);
+    return res.end();
 })
 
 app.listen(port,"0.0.0.0",()=>{
